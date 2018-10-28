@@ -16,7 +16,7 @@
       @endif
       <p class="email-help" style="display: block;">Le token blablabla...</p>
     </div>   
-    <div class='input-block'>    
+    <div class='input-block'>
     <input name='name' class="name {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('name') }}" type="text" value="{{ old('name') }}" required>
       @if ($errors->has('name'))
           <span class="invalid-feedback" role="alert">
@@ -32,7 +32,7 @@
           </span>
       @endif
     </div>
-    <div class='input-block'>    
+    <div class='input-block'>
     <input name='password' class="password {{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('Password') }}" type="password" required>
       @if ($errors->has('password'))
           <span class="invalid-feedback" role="alert">
@@ -40,7 +40,7 @@
           </span>
       @endif
     </div>  
-    <div class='input-block'>      
+    <div class='input-block'>
     <input name='password_confirmation' class="password {{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" placeholder="{{ __('Confirm Password') }}" type="password" required>
       @if ($errors->has('password_confirmation'))
           <span class="invalid-feedback" role="alert">
