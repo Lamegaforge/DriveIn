@@ -11,8 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+mix.js('resources/js/front_door.js', 'public/js')
+   .sass('resources/sass/front_door.scss', 'public/css');
 
 mix.js('resources/js/cinema.js', 'public/js')
    .sass('resources/sass/cinema.scss', 'public/css');

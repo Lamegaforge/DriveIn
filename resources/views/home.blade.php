@@ -1,4 +1,4 @@
-@extends('layouts.cinema')
+@extends('layouts.front_door')
 
 @section('content')
 <div id="terminal">
