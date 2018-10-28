@@ -1,6 +1,11 @@
-@extends('layouts.front_door')
+@extends('layouts.mother')
 
-@section('content')
+@push('styles')
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/cinema.css') }}" rel="stylesheet">
+@endpush
+
+@section('body')
 <div id="terminal">
   !# System.Root.$~{{auth()->user()->name}} -access MEGACINE:
     @can('manage-token', auth()->user())
