@@ -6,7 +6,7 @@
     <p class='describe'>To sign-up for a free basic account please provide us with some basic information using
     the contact form below. Please use valid credentials.</p>
     @if ($errors->has('email') || $errors->has('password'))
-      <p class='invalid-feedback'>qsdqsdsqdq</p>
+      <p class='invalid-feedback'>Non, rentre chez toi.</p>
     @endif
     <form method="POST" action="{{ route('login') }}">
         @csrf
