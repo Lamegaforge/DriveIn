@@ -4,8 +4,8 @@ namespace App\Listeners;
 
 use DateTime;
 use App\Models;
+use Illuminate\Auth\Events;
 use Illuminate\Http\Request;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 
 class UseToken
 {
@@ -22,10 +22,10 @@ class UseToken
     /**
      * Handle the event.
      *
-     * @param  \Illuminate\Auth\Listeners\SendEmailVerificationNotification $event
+     * @param  \Illuminate\Auth\Events\Registered $event
      * @return void
      */
-    public function handle(SendEmailVerificationNotification $event)
+    public function handle(Events\Registered $event)
     {
         $token = Models\Token::where('value', $this->request->get('token'))->first();
 
@@ -34,10 +34,10 @@ class UseToken
 
     /**
      * @param  \App\Models\Token $token
-     * @param  \Illuminate\Auth\Listeners\SendEmailVerificationNotification $event
+     * @param  \Illuminate\Auth\Events\Registered $event
      * @return void
      */
-    protected function hydrate(Models\Token $token, SendEmailVerificationNotification $event)
+    protected function hydrate(Models\Token $token, Events\Registered $event)
     {
         $token->owner()->associate($event->user)->save();
 
