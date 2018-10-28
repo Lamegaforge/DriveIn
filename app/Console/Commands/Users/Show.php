@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands\Users;
 
-use App\User\Models;
+use App\Models;
 use Illuminate\Console\Command;
 
 class Show extends Command
@@ -45,6 +45,10 @@ class Show extends Command
         $this->table(['id', 'name', 'permissions'], $this->transform($user));
     }
 
+    /**
+     * @param  \App\Models\User $user
+     * @return array
+     */
     protected function transform(Models\User $user)
     {
         return [

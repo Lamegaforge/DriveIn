@@ -49,6 +49,9 @@ class Admin extends Command
         $this->output($user);
     }
 
+    /**
+     * @return \App\Models\User
+     */
     protected function retrieveUser()
     {
         $id = $this->argument('id');
@@ -56,6 +59,10 @@ class Admin extends Command
         return Models\User::findOrFail($id);
     }
 
+    /**
+     * @param \App\Models\User
+     * @return \App\Models\User
+     */
     protected function switchAdminStatus($user)
     {
         $user->admin = ! $user->admin; #habile !
@@ -65,6 +72,11 @@ class Admin extends Command
         return $user;
     }    
 
+    /**
+     * @param \App\Models\User $user
+     * @param \App\Models\User $admin
+     * @return mixed
+     */
     protected function output($user, $admin)
     {
         $qsdqs = ($user->admin) ? ' est désormais administrateur' : " n'est plus administrateur" ;

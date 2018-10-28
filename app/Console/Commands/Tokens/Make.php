@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Tokens;
 
 use App\Models;
 use App\Services\TokenService;
@@ -13,7 +13,7 @@ class Make extends Command
      *
      * @var string
      */
-    protected $signature = 'token:make';
+    protected $signature = 'tokens:make';
 
     /**
      * The console command description.
@@ -32,8 +32,7 @@ class Make extends Command
     }
 
     /**
-     * Execute the console command.
-     *
+     * @param  \App\Services\TokenService $tokenService
      * @return mixed
      */
     public function handle(TokenService $tokenService)

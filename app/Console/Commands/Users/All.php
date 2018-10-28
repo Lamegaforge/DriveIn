@@ -40,9 +40,13 @@ class All extends Command
     {
         $users = Models\User::with(['permissions', 'token'])->select(['id', 'name'])->get();
 
-        $this->table(['id', 'name', 'token', 'permissions'], $this->transform($users));
+        $this->table(['id', 'name', 'token', 'permissions', 'admin'], $this->transform($users));
     }
 
+    /**
+     * @param  \App\Models\User $users
+     * @return array
+     */
     protected function transform($users)
     {
         return $users->map(function($user){
@@ -50,7 +54,8 @@ class All extends Command
                 'id' => $user->id,
                 'name' => $user->name,
                 'token' => $user->token->value ?? null,
-                'permissions' => implode(', ', $user->permissions->toArray()),
+                'permissions' => implode(', ', $user->permissions->pluck('name')->toArray()),
+                'admin' => $user->admin,
             ];
         })->toArray();
     }
