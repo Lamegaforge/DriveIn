@@ -2,8 +2,13 @@
 
 @section('content')
 <div id="terminal">
-  !# System.Root.$~megaforgeron -access MEGACINE:
-  <a href='#'>Profil</a>
+  !# System.Root.$~{{auth()->user()->name}} -access MEGACINE:
+    @can('manage-token', auth()->user())
+      <a href="{{ route('token.index') }}">Tokens</a>
+    @endcan
+    @can('manage-user', auth()->user())
+      <a href="{{ route('user.index') }}">Users</a>
+    @endcan    
     <a href="{{ route('logout') }}"
        onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
