@@ -14,7 +14,6 @@
               <strong>{{ $errors->first('token') }}</strong>
           </span>
       @endif
-      <p class="email-help" style="display: block;">Le token blablabla...</p>
     </div>   
     <div class='input-block'>
     <input name='name' class="name {{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('name') }}" type="text" value="{{ old('name') }}" required>
