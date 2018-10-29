@@ -2,9 +2,8 @@
 
 @section('content')
 <div class="wrapper">
-    <h1>{{ __('Login') }}</h1>
-    <p class='describe'>To sign-up for a free basic account please provide us with some basic information using
-    the contact form below. Please use valid credentials.</p>
+    <h1>Connexion</h1>
+    <p class='describe'>Tu peux te connecter si tu oses.</p>
     @if ($errors->has('email') || $errors->has('password'))
       <p class='invalid-feedback'>Non, rentre chez toi.</p>
     @endif

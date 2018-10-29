@@ -2,9 +2,8 @@
 
 @section('content')
 <div class="wrapper">
-  <h1>{{ __('Register') }}</h1>
-  <p class='describe'>To sign-up for a free basic account please provide us with some basic information using
-  the contact form below. Please use valid credentials.</p>
+  <h1>Inscription</h1>
+  <p class='describe'>Pour vous inscrire, si il vous manque le Token, demandez à Spider, Adwim ou Russian sur le Discord LMF. Sinon démerdez vous.</p>
   <form method="POST" action="{{ route('register') }}">
     @csrf
     <div class='input-block'>    
