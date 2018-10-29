@@ -40,6 +40,6 @@ class Token implements Rule
      */
     public function message()
     {
-        return "Le token n'est pas valide";
+        return "Le token n'est pas valide, regarde les lignes juste au dessus, connard.";
     }
 }
