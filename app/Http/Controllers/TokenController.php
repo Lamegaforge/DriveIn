@@ -31,9 +31,13 @@ class TokenController extends Controller
      */
     public function index(Request $request)
     {
-        $tokens = Models\Token::orderBy('created_at', 'DESC')->paginate(10);
+        $tokens = Models\Token::orderBy('created_at', 'DESC')->free()->paginate(10);
+        $latestTokensAssigned = Models\Token::orderBy('owned_at', 'DESC')->notFree()->paginate(10);
 
-        return View::make('token.index', ['tokens' => $tokens]);
+        return View::make('token.index', [
+            'tokens' => $tokens,
+            'latestTokensAssigned' => $latestTokensAssigned,
+        ]);
     }
 
     /**

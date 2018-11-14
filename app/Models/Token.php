@@ -19,6 +19,11 @@ class Token extends Model
         return $query->whereNull('owned_by');
     }
 
+    public function scopeNotFree($query)
+    {
+        return $query->whereNotNull('owned_by');
+    }    
+
     public function owner()
     {
         return $this->belongsTo(Models\User::class, 'owned_by');

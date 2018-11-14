@@ -10,7 +10,7 @@
               </ol>
             </nav>            
             <div class="card">
-                <div class="card-header">Gestion des tokens</div>
+                <div class="card-header">Liste des tokens disponibles</div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -89,6 +89,64 @@
                 </form>
                 </div>
             </div>
+            <br>
+            <div class="card">
+                <div class="card-header">10 derniers tokens associés</div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">token</th>
+                                <th scope="col">maked_by</th>
+                                <th scope="col">assigned to</th>
+                                <th scope="col">owned_by</th>
+                                <th scope="col">owned_at</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($latestTokensAssigned as $token)
+                            <tr>
+                                <td>
+                                    @if ($token->owner)
+                                        <span class="badge badge-secondary">used</span>
+                                    @else 
+                                        <span class="badge badge-success">free</span>
+                                    @endif
+                                </td>                                
+                                <td>{{$token->value}}</td>
+                                <td>
+                                    @if ($token->maker)
+                                        {{$token->maker->name}}
+                                    @else
+                                        God
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($token->assigned_to)
+                                        {{$token->assigned_to}}
+                                    @endif
+                                </td>                                
+                                <td>
+                                    @if ($token->owner)
+                                        {{$token->owner->name}}
+                                    @endif                                    
+                                </td>
+                                <td>{{$token->owned_at}}</td>
+                                <td>
+
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    {{ $tokens->links() }}
+                </div>
+                <div class='card-footer'>
+
+                </div>
+            </div>            
         </div>
     </div>
 </div>
