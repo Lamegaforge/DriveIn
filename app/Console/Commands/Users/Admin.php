@@ -12,7 +12,7 @@ class Admin extends Command
      *
      * @var string
      */
-    protected $signature = 'users:admin {id} {admin}';
+    protected $signature = 'users:admin {id}';
 
     /**
      * The console command description.
@@ -40,6 +40,8 @@ class Admin extends Command
     {
         $user = $this->retrieveUser();
 
+        $this->showActualStatus($user);
+
         if (! $this->confirm('Voulez vous vraiment modifier le status administrateur de ' . $user->name)) {
             return;
         }
@@ -50,9 +52,21 @@ class Admin extends Command
     }
 
     /**
+     * @param  \Models\User $user
+     * @return void
+     */
+    protected function showActualStatus(Models\User $user)
+    {
+        $status = ($user->admin) ? 'administrateur.' : 'simple utilisateur.';
+
+        $this->info($user->name . ' est actuellement un ' . $status);
+    }
+
+    /**
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      * @return \App\Models\User
      */
-    protected function retrieveUser()
+    protected function retrieveUser() :Models\User
     {
         $id = $this->argument('id');
 
@@ -63,7 +77,7 @@ class Admin extends Command
      * @param \App\Models\User
      * @return \App\Models\User
      */
-    protected function switchAdminStatus($user)
+    protected function switchAdminStatus(Models\User $user) :Models\User
     {
         $user->admin = ! $user->admin; #habile !
 
@@ -77,7 +91,7 @@ class Admin extends Command
      * @param \App\Models\User $admin
      * @return mixed
      */
-    protected function output($user, $admin)
+    protected function output(Models\User $user)
     {
         $qsdqs = ($user->admin) ? ' est désormais administrateur' : " n'est plus administrateur" ;
 
