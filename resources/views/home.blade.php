@@ -13,7 +13,7 @@
     @endcan
     @can('manage-user', auth()->user())
       <a href="{{ route('user.index') }}">Users</a>
-    @endcan    
+    @endcan  
     <a href="{{ route('logout') }}"
        onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
@@ -25,7 +25,7 @@
 </div>
 <div class='twitchWrapper'>
   <div class='twitchStream'>
-    <iframe src="https://www.ustream.tv/embed/23618633?html5ui" style="border: 0;" webkitallowfullscreen allowfullscreen frameborder="no"></iframe>
+    <iframe src="https://www.ustream.tv/embed/{{config('channel.active')}}?html5ui" style="border: 0;" webkitallowfullscreen allowfullscreen frameborder="no"></iframe>
   </div>
   <div class='twitchChat'>
     <iframe frameborder="0" scrolling="no" src="https://www.twitch.tv/embed/rurulmf/chat"></iframe>
