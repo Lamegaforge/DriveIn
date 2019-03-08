@@ -1,5 +1,7 @@
 @extends('layouts.mother')
 
+@inject('channelManager', 'App\Managers\Channel\ChannelManager')
+
 @push('styles')
     <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/cinema.css') }}" rel="stylesheet">
@@ -14,6 +16,9 @@
     @can('manage-user', auth()->user())
       <a href="{{ route('user.index') }}">Users</a>
     @endcan  
+    @can('manage-channel', auth()->user())
+      <a href="{{ route('channel.index') }}">Channel</a>
+    @endcan      
     <a href="{{ route('logout') }}"
        onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
@@ -25,7 +30,7 @@
 </div>
 <div class='twitchWrapper'>
   <div class='twitchStream'>
-    <iframe src="https://www.ustream.tv/embed/{{config('channel.active')}}?html5ui" style="border: 0;" webkitallowfullscreen allowfullscreen frameborder="no"></iframe>
+    <iframe src="https://player.angelthump.com/?channel=ledrivein" style="border: 0;" webkitallowfullscreen allowfullscreen frameborder="no"></iframe>
   </div>
   <div class='twitchChat'>
     <iframe frameborder="0" scrolling="no" src="https://www.twitch.tv/embed/rurulmf/chat"></iframe>
