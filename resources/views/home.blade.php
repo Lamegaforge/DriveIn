@@ -1,7 +1,5 @@
 @extends('layouts.mother')
 
-@inject('channelManager', 'App\Managers\Channel\ChannelManager')
-
 @push('styles')
     <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/cinema.css') }}" rel="stylesheet">
@@ -16,9 +14,6 @@
     @can('manage-user', auth()->user())
       <a href="{{ route('user.index') }}">Users</a>
     @endcan  
-    @can('manage-channel', auth()->user())
-      <a href="{{ route('channel.index') }}">Channel</a>
-    @endcan      
     <a href="{{ route('logout') }}"
        onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
