@@ -28,7 +28,7 @@
     <iframe src="https://player.angelthump.com/?channel=ledrivein" style="border: 0;" webkitallowfullscreen allowfullscreen frameborder="no"></iframe>
   </div>
   <div class='twitchChat'>
-    <iframe frameborder="0" scrolling="no" src="https://www.twitch.tv/embed/rurulmf/chat"></iframe>
+    <iframe frameborder="0" scrolling="no" src="https://www.twitch.tv/embed/lamegaforgelive/chat"></iframe>
   </div>
 </div>
 @endsection
