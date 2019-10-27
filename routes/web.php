@@ -11,6 +11,15 @@
 |
 */
 
+
+Route::get('halloween', function () {
+    return view('halloween');
+})->name('halloween');
+
+Route::any('{all}', function() {
+    return redirect()->route('halloween');
+});
+
 Route::get('/', function () {
     return view('home');
 })->middleware('auth');
@@ -25,7 +34,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/', 'UserController@index')->name('user.index');
         Route::get('show/{id}', 'UserController@show')->name('user.show');
         Route::post('update-permissions/{id}', 'UserController@updatePermissions')->name('user.update_permissions');
-    });    
+    });
 });
 
 Auth::routes();
