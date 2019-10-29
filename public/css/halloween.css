@@ -1,0 +1,23 @@
+header {
+    text-align: center;
+}
+header img {
+   height: 263px;
+}
+
+.spiders {
+    position: absolute;
+    height: 200px;
+    width: auto;
+    top: 0px;
+    z-index: -1;
+    opacity: 0.2;
+}
+
+.right {
+    right: 0px;
+}
+
+.left {
+    left: 0px;
+}
