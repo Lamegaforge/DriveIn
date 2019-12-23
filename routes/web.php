@@ -11,13 +11,12 @@
 |
 */
 
-
-Route::get('halloween', function () {
-    return view('halloween');
-})->name('halloween');
+Route::get('christmas', function () {
+    return view('christmas');
+})->name('christmas');
 
 Route::any('{all}', function() {
-    return redirect()->route('halloween');
+    return redirect()->route('christmas');
 });
 
 Route::get('/', function () {

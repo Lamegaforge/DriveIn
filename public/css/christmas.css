@@ -1,0 +1,63 @@
+html {
+    background: rgb(58,53,136);
+    background: -moz-radial-gradient(circle, rgba(58,53,136,1) 0%, rgba(14,11,27,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(58,53,136,1) 0%, rgba(14,11,27,1) 100%);
+    background: radial-gradient(circle, rgba(58,53,136,1) 0%, rgba(14,11,27,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3a3588",endColorstr="#0e0b1b",GradientType=1); 
+}
+
+header {
+    text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+    header img {
+        height: 280px;
+        margin-top: -45px;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 1000px) {
+    header img {
+        height: 400px;
+        margin-top: -57px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    header img {
+        height: 457px;
+        margin-top: -59px;
+    }
+}
+
+#garland {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('/images/christmas/garland.png');
+    height: 36px;
+    width: 100%;
+    overflow: hidden;
+    z- index: 99;
+}
+
+#section {
+    padding: 100px
+}
+
+.garland_0 {
+    background-position: 0 0
+}
+
+.garland_1 {
+    background-position: 0 -36px
+}
+
+.garland_2 {
+    background-position: 0 -72px
+}
+
+.garland_3 {
+    background-position: 0 -108px
+}
